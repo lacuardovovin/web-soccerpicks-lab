@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>完美体育 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f6f0;  
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c2b28;
+            line-height: 1.7;
+            padding: 0 1rem;
+        }
+
+        .page {
+            max-width: 820px;
+            margin: 2.5rem auto;
+            background: #fffcf7;
+            border-radius: 36px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.02);
+            padding: 2.2rem 2rem 3rem;
+        }
+
+        @media (max-width: 540px) {
+            .page {
+                padding: 1.5rem 1.2rem 2.5rem;
+                margin: 1.2rem auto;
+                border-radius: 24px;
+            }
+        }
+
+        /* --- hero 区 --- */
+        .hero {
+            text-align: center;
+            padding: 1.8rem 0 2rem;
+            border-bottom: 1px solid #e9e1d6;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 540;
+            letter-spacing: -0.02em;
+            color: #1e1c1a;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.15rem;
+            color: #5e5a55;
+            max-width: 540px;
+            margin: 0.6rem auto 0;
+            border-left: 3px solid #cbb9a4;
+            padding-left: 1rem;
+            text-align: left;
+            background: #f5f0ea;
+            border-radius: 0 12px 12px 0;
+            padding: 0.7rem 1.2rem;
+        }
+
+        .hero .subhead::before {
+            content: "📌 ";
+        }
+
+        /* --- 引用 / 提示框 --- */
+        .notice-box {
+            background: #ede8e0;
+            border-radius: 20px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.8rem 0 2.2rem;
+            border-left: 6px solid #b8a48e;
+            font-size: 0.98rem;
+            color: #34312e;
+        }
+
+        .notice-box strong {
+            font-weight: 600;
+            color: #1f1d1a;
+        }
+
+        .quote {
+            background: #ffffffd9;
+            border: 1px solid #e2d9ce;
+            border-radius: 18px;
+            padding: 1.2rem 1.6rem;
+            font-style: normal;
+            margin: 1.8rem 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .quote p {
+            margin: 0.4rem 0;
+        }
+
+        .quote .author {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: #6f6a63;
+        }
+
+        /* --- 内容卡片 (优势/说明) --- */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.6rem;
+            margin: 2rem 0 2.2rem;
+        }
+
+        .card {
+            flex: 1 1 200px;
+            background: #faf7f2;
+            border-radius: 24px;
+            padding: 1.5rem 1.4rem;
+            border: 1px solid #e6ddd2;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 540;
+            margin-bottom: 0.5rem;
+            color: #2a2724;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            font-size: 0.96rem;
+            color: #4d4944;
+        }
+
+        .card .icon-deco {
+            display: inline-block;
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+            opacity: 0.65;
+        }
+
+        /* --- 说明区 / 段落 --- */
+        .section {
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .section h2 {
+            font-weight: 520;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px dotted #d6cdc0;
+            color: #2b2825;
+        }
+
+        .section p {
+            margin: 1rem 0;
+        }
+
+        .highlights {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0;
+        }
+
+        .highlights li {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            position: relative;
+            border-bottom: 1px solid #ece5db;
+        }
+
+        .highlights li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #a2907c;
+            font-weight: bold;
+            font-size: 1.8rem;
+            line-height: 1;
+            top: 0.35rem;
+        }
+
+        .highlights li:last-child {
+            border-bottom: none;
+        }
+
+        /* --- faq 摘要 --- */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.2rem 1.6rem;
+            margin: 2.2rem 0;
+            border: 1px solid #e5dcd0;
+        }
+
+        .faq-summary details {
+            margin: 0.6rem 0;
+            border-bottom: 1px solid #efe8de;
+            padding: 0.4rem 0;
+        }
+
+        .faq-summary details:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-summary summary {
+            font-weight: 530;
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #2d2a26;
+            padding: 0.3rem 0;
+        }
+
+        .faq-summary summary::before {
+            content: "▸";
+            margin-right: 0.3rem;
+            color: #bcab98;
+            font-size: 1.2rem;
+        }
+
+        .faq-summary details[open] summary::before {
+            content: "▾";
+        }
+
+        .faq-summary .answer {
+            padding: 0.6rem 1.6rem 0.2rem;
+            color: #4a4641;
+            font-size: 0.95rem;
+        }
+
+        /* --- 底部链接区 --- */
+        .footer-links {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #ddd5c9;
+            font-size: 0.95rem;
+            text-align: center;
+            color: #5f5a54;
+        }
+
+        .footer-links a {
+            color: #6f5c48;
+            text-decoration: none;
+            border-bottom: 1px solid #cec1b2;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #3d352e;
+            border-bottom-color: #9b8877;
+        }
+
+        .inline-link {
+            color: #6f5c48;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cfbfae;
+            font-weight: 500;
+        }
+
+        .inline-link:hover {
+            color: #3d352e;
+            text-decoration-color: #8d7b68;
+        }
+
+        .footer-meta {
+            margin-top: 1.2rem;
+            opacity: 0.7;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e8dfd3;
+            margin: 2rem 0 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>完美体育 · 简明指南</h1>
+        <div class="subhead">访问提醒 &amp; 日常使用备忘录</div>
+        <p style="margin-top: 1.2rem; font-size: 1rem; color: #4c4843; max-width: 600px; margin-left: auto; margin-right: auto;">
+            从实际场景出发，整理了一份关于浏览与使用的轻量提醒，适合新朋友快速了解。
+        </p>
+    </div>
+
+    <!-- 提示框：访问提醒 -->
+    <div class="notice-box">
+        <strong>📎 访问提醒</strong><br>
+        建议使用系统自带浏览器，保持网络环境稳定。若遇到页面加载缓慢，可稍后重试或检查本地网络。<br>
+        日常使用中留意地址栏显示的链接，确保前往的是正确的服务页面。
+    </div>
+
+    <!-- 优势卡片区 -->
+    <div style="margin: 1.8rem 0 0.5rem;">
+        <p style="font-size: 1.1rem; font-weight: 470; color: #3a3632;">一些容易被忽视的细节</p>
+    </div>
+    <div class="card-grid">
+        <div class="card">
+            <span class="icon-deco">◈</span>
+            <h3>界面与习惯</h3>
+            <p>内容分类清晰，常用模块排布符合直觉。熟悉布局后能更快找到关注的信息。</p>
+        </div>
+        <div class="card">
+            <span class="icon-deco">◈</span>
+            <h3>信息更新节奏</h3>
+            <p>动态内容保持定期刷新，建议留意页面标注的时间戳，获取相对新鲜的资讯。</p>
+        </div>
+        <div class="card">
+            <span class="icon-deco">◈</span>
+            <h3>轻度使用建议</h3>
+            <p>无需频繁刷新，合理利用收藏与书签功能，能提升日常浏览的连贯性。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：从简明指南切入 -->
+    <div class="section">
+        <h2>为什么需要一份“简明指南”</h2>
+        <p>很多人第一次接触类似服务时，容易被大量信息淹没。其实只需要掌握几个基础原则：<br>
+           了解页面入口、熟悉主要分区、知道如何快速返回首页。</p>
+        <p>所以我们把最常见的问题和操作习惯浓缩成下面的要点，不求全面，只求实用。</p>
+
+        <ul class="highlights">
+            <li>主页面采用上下结构，顶部导航聚合了主要分类，底部通常放置辅助链接。</li>
+            <li>部分功能需要轻量注册或登录，请保管好个人凭证，不要在公共设备上保存密码。</li>
+            <li>若遇到显示异常，尝试清除缓存或更换浏览器，通常能解决大多数样式问题。</li>
+        </ul>
+
+        <div class="quote">
+            <p>“把复杂的东西拆成几步，每次只关注当前的任务——这是最朴素的效率建议。”</p>
+            <span class="author">—— 来自一位常访问<a href="https://cn-wmsport.com" class="inline-link">完美体育</a>的用户分享</span>
+        </div>
+    </div>
+
+    <!-- 额外说明：场景与提醒 -->
+    <div class="section" style="margin-top: 0.2rem;">
+        <h2>常见场景与提醒</h2>
+        <p>不论你是第一次使用，还是已经有一段时间，下面几条提醒或许对你有所帮助：</p>
+        <ul class="highlights">
+            <li><strong>确认网址</strong> — 手动输入或通过收藏夹进入，避免点击来历不明的短链接。</li>
+            <li><strong>网络波动</strong> — 如果页面部分资源加载失败，可以尝试刷新或稍后访问。</li>
+            <li><strong>内容时效</strong> — 部分页面带有“更新于”标记，以该时间为准。</li>
+            <li><strong>个人偏好</strong> — 很多浏览器支持“添加到主屏幕”，方便快速直达。</li>
+        </ul>
+        <p style="margin-top: 1rem;">另外，如果你在使用中遇到任何疑问，可以查看页面底部的辅助链接，那里通常有更详细的说明。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <details>
+            <summary>我需要注册才能浏览大多数内容吗？</summary>
+            <div class="answer">大部分公开页面可以直接访问，只有部分互动功能可能需要轻量账号。具体以实际页面提示为准。</div>
+        </details>
+        <details>
+            <summary>移动端和电脑端体验差别大吗？</summary>
+            <div class="answer">布局会自适应，核心功能保持一致。小屏幕下部分导航会折叠，但基本操作逻辑相同。</div>
+        </details>
+        <details>
+            <summary>页面上的链接都是安全的吗？</summary>
+            <div class="answer">请始终通过官方域名 <a href="https://cn-wmsport.com" class="inline-link">完美体育</a> 进入，不要依赖第三方转载的链接。同时注意检查浏览器地址栏。</div>
+        </details>
+        <details>
+            <summary>遇到错误页面怎么办？</summary>
+            <div class="answer">先刷新一次；若仍然显示异常，可以稍后再试，或尝试更换网络环境。大部分临时问题都能很快恢复。</div>
+        </details>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <p>主要入口：<a href="https://cn-wmsport.com">完美体育</a> · 建议收藏以方便日常访问</p>
+        <p style="margin-top: 0.6rem;">页面内容仅为使用参考，不构成任何承诺或保证。请根据实际情况自行判断。</p>
+        <div class="footer-meta">简明指南 · 访问提醒 · 日常参考</div>
+    </div>
+
+    <hr>
+    <p style="text-align: center; font-size: 0.8rem; color: #9e968d; letter-spacing: 0.3px;">—— 保持简单，保持清醒 ——</p>
+</div>
+</body>
+</html>
